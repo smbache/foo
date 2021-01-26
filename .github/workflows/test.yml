@@ -1,0 +1,22 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+
+    steps:
+    - name: Checkout Foo
+      uses: actions/checkout@v2
+      with:
+        path: foo
+
+    - name: Checkout Bar
+      uses: actions/checkout@v2
+      with:
+        repository: smbache/bar
+        path: bar
